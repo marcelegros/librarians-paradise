@@ -1,1 +1,1 @@
-Source code for the Legrosports website.
+Source code for the James Hurley website.

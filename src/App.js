@@ -1,26 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './pages/Home';
 
-function App() {
-  return (
+export default class App extends Component {
+
+  state = {
+
+    gameState: "waiting",
+
+    theme: null,
+
+  }
+
+  beginGame = () => {
+
+    // Engage audio
+
+    let audio = new Audio('/audio/JustYouOld.mp3');
+    audio.autoPlay = true;
+    audio.load();
+    audio.play();
+    this.setState({ 
+      theme: audio,
+      gameState: 'playing'
+    });
+
+  }
+
+
+  render = () => {return (
     <div >
 
       <Router>
-        <Header title={"Legrosports"} logo={"resources/runnerLogo.png"}/>
 
-        <Home />
+        {this.state.gameState === 'waiting' && 
 
-        <Footer />
+        <div className='beginButton'
+             onClick = {this.beginGame}
+          >
+            Begin
 
+        </div>
+      
+        }
+
+        {this.state.gameState === 'playing' && 
+          <Home  />
+        }
+
+ 
       </Router>
 
     </div>
   );
-}
+}}
 
-export default App;
