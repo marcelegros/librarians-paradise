@@ -1,0 +1,20 @@
+
+
+.footerContainer {
+    position: relative;
+    height: 125px;
+    background-color: rgba(0, 0, 0,1);
+
+}
+
+
+.contactLink {
+
+    color: rgba(200, 200, 200,1);
+    /* color: rgba(243, 191, 20, 0.5); */
+    transition: 0.2s ease-in-out all;
+}
+
+.contactLink:hover {
+    color: rgba(243, 191, 20, 0.8);
+}

@@ -1,0 +1,30 @@
+
+
+.logoSection { 
+
+    width: 50%;
+    position: relative;
+    left: 25%;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+  
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+        width: 50%;
+        /* left: 10%; */
+        top: -25px;
+    } 
+    100% { 
+        width: 50%;
+        top: 0px;
+        /* left: 25%; */
+        opacity: 1; 
+     } 
+} 
