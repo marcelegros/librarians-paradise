@@ -1,0 +1,83 @@
+
+
+.interludePage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,1);
+
+    transition: ease-in-out 0.5s all;
+
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+
+}
+
+.interludeTextContainer {
+
+    /* Pos */
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: calc(50% - 50px);
+
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+
+    /* Text */
+    color: rgba(255,255,255, 0.7);
+    text-align: center;
+    line-height: 100px;
+    font-style: oblique;
+    font-size: 20px;
+    z-index: 3;
+}
+
+
+.interludeImgContainer {
+
+    /* Pos */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+
+}
+
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+
+    } 
+    100% {
+        opacity: 1; 
+     } 
+} 
+
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit .fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}

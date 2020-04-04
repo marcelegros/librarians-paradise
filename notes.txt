@@ -1,0 +1,10 @@
+Hmmm...
+
+The levels will need to all have access to some sort of visual game engine...
+
+This should be able to proccess
+    - Sprites in any given location
+    - Images in any given location
+    
+    - The Level will be responsible for handling collisions, etc. 
+    - The Level will be responsible for metrics on success, etc.
