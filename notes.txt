@@ -8,3 +8,14 @@ This should be able to proccess
     
     - The Level will be responsible for handling collisions, etc. 
     - The Level will be responsible for metrics on success, etc.
+
+    There can be a generic "Level" component, that can be passed objects as children, and bools to turn off certain types of interaction. 
+
+    This level component will require a parent to handle the callbacks that are involved in object collision, click on object, etc. 
+
+
+    Everything will be rendered on a canvas, so somehow the level needs to be capable of rendering at a certain frame rate onto a canvas. 
+
+    ... I'll make a Screen, that is an element Level. The screen will be able to render everything as needed....
+
+    https://jlongster.com/Making-Sprite-based-Games-with-Canvas

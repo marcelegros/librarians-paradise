@@ -1,0 +1,19 @@
+
+
+.levelContainer {
+
+    position: absolute;
+
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+
+    top: 10px;
+    left: 10px;
+    border: 1px solid white;
+
+}
+
+
+.level1Container {
+    color: white;
+}

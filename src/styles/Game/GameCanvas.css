@@ -1,0 +1,15 @@
+
+
+.gameCanvasContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gameCanvas {
+
+    /* Fill parent div */
+    width: 100%;
+    height: 100%;
+
+}

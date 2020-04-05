@@ -36,7 +36,7 @@ export const gameFlow = [
 
     {
         type: 'level',
-        levelName: 'level1',
+        levelName: 'Level1',
         introTitle: 'Level One',
         introText: '',
     },

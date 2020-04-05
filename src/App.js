@@ -5,6 +5,7 @@ import Home from './pages/Home';
 
 import { gameFlow } from './constants/gameFlow';
 import Interlude from './pages/Interlude';
+import Level1 from './components/Game/Level1';
 
 export default class App extends Component {
 
@@ -64,6 +65,16 @@ export default class App extends Component {
 
   }
 
+  // Get the current level to render
+  renderLevel = () => {
+
+    if (this.state.currentLevel.levelName === 'Level1') 
+        return(<Level1 />)
+      
+    return '';
+
+  }
+
 
   render = () => {
 
@@ -97,7 +108,7 @@ export default class App extends Component {
             {/* Render Level */}
             {this.state.currentLevel.type === 'level' ? 
 
-              <Home />
+              this.renderLevel()
           
             : ''}
           
