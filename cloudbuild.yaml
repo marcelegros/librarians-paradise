@@ -2,4 +2,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-docker.pkg.dev/clever-form-328903/ayisen-fidget/ayisen-fidget:latest', '.', '-f', './Dockerfile.prod' ]
 images:
-- 'us-docker.pkg.dev/clever-form-328903/ayisen-fidget/ayisen-fidget:latest'
+- 'us-docker.pkg.dev/clever-form-328903/ayisen-fidget/ayisen-fidget:latest '
