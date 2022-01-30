@@ -19,3 +19,246 @@ This should be able to proccess
     ... I'll make a Screen, that is an element Level. The screen will be able to render everything as needed....
 
     https://jlongster.com/Making-Sprite-based-Games-with-Canvas
+
+
+
+
+
+June 18th
+
+
+    In a slighlty different vein... it would be great to generalize this storyboard to be able to describe a wide variety of games in the UI...
+
+
+    This would allow me to use this as a Wrapper for Nick's thing. A sort of front-end / backend engine. 
+
+    The backend would dictate where the game flows to / keep score. I can do this using a dummy backend for now. 
+
+    The front end would display things for users. 
+
+
+    The idea would be to first create a robust storyboard.
+
+
+This is getting pretty complicated... I wonder how you could simplify it down a bit....
+
+You could have it so there's a reasonably finite number of games you could make...
+They all fall within a set of predesignated "types" of games, getting more and more granular...
+
+OR, you let them decide
+
+- The initial State.
+- What a round looks like. 
+- How it effects the state.
+- What a winning state looks like. 
+
+
+
+
+Okay, so a GameBoard would need to be something that allows for the following freedoms: 
+
+
+    1. There must be a rule for moving between turns, or rounds. (edit global variables? ).
+
+    2. There must be a rule for how a turn is finished (could be as simple as the submitted card === 1)
+
+    3. There must be a rule for when a game is completed. 
+
+    It's significant that ANY of the players could contribute to the turn hypothetically...
+
+
+GameBoard needs to be able to: 
+
+
+*** The user will need to be able to insert "between" operations between rounds. 
+
+This could be shuffling a list, etc. 
+
+
+
+This seems really complicated... but these are really just nested "Types" that all need to have operations that can be called on them. 
+
+
+DATATYPES (API / UI): 
+    These are available for the RoundData or GameData. 
+    There are operations that can be performed on these objects. (Canvas.scrub for example);
+    
+    These can be performed at any point in the processing line once they've been declared.
+
+
+    - list.
+    - deck of cards.
+    - number 
+    - text
+    - boolean
+    - player
+    - timer
+    - canvas
+
+
+INITIALIZER (API / UI):
+
+    This is a component that is capable of setting initial properties, or a user to set them. 
+
+    UI: 
+
+        - Set CONSTANT or INITIALIZE_IN_GAME
+        - Set Val if CONSTANT
+        - If Initialize in Game, decide who initializes. (specific player, random);
+
+
+
+
+Here is how a user would ideally create a game: 
+
+    1. Name the game. 
+
+    2. Dictate if this is one of the following types of games: 
+        - 1 vs. 1.
+        - Team vs. Team. (toggle captains?)
+        - Individual Players.
+
+    3. What the variables of the game will be. * Theres are things that are set up before the game begins, or are tracked as the game progresses.
+        
+        - This step will initialize the "globalVariables"
+        - This should be editable after being set.
+
+
+        * The user will need to save specific variables as TEAM variables. 
+
+        * The user will need to save specific variables as PLAYER variables.
+
+        Types of things to store here: 
+            - Important times
+            - Important lists 
+            - Important bits of text
+            - Important players
+            - Team specific data
+        
+        TYPES = DATATYPES
+
+
+
+    4. Decide upon any initial setting of game properties. 
+
+        - Allow certain players to set different values (depending on the type of the game)
+        - Allow the creator to set default numbers, lists, etc. 
+
+
+    5. Decide upon the "pregame" initialization. 
+
+        - This includes things like All Players add an item to the list. Or, all players add until the list is full. 
+            Or, all players add an equal number to the list. That number should come from the game Varialbes. OR, from gameConstants.
+
+    6. Okay, once everything is set up... now we need to tell how the round will be chosen. 
+
+        General options: 
+            - All players are in. 
+            - Random player is in. 
+            - N Random players are in. 
+            - Rotate through 1 player in.
+            - Rotate through N players in. 
+
+        OR allow the user to upload a programatic selector... not very user friendly. 
+        
+        1v1: 
+            - Both players are in. 
+            - Random player is in. 
+            - Alternate.
+
+
+        Team: 
+            - Alternate teams.
+            - Alternate single player from team.
+
+
+        There could basically be buckets, based on the type of game. (Teams, SingleMass, 1v1).
+
+        You select a bucket, OR a single person. And then you tell how you selected that thing. Random, or rotation. 
+        If you went two layers in (team, and then player), you have to declare the chosing proceedure for each layer.
+
+
+
+    7. Need to declare what the round data will be. 
+
+        Types = DATATYPES
+
+        The user gets to pick and add them. 
+
+        Should be able to go back.
+
+
+    8. Declare "preround" ritual for editing data.
+
+        Initialize data / who can initialize data. (INITIALIZER)
+
+
+
+    9. Need to declare how the user will interact with the round data and gameData during the round. 
+
+
+    10. Need to declare UNDER WHAT CONDITIONS the round will end.
+
+        - Timer
+        - 
+
+
+
+    - Define the specific way in which a player is chosen for the next game
+        () This can have default opts (rotate players, rotate teams, random player/team, all players, player generator function, etc.)
+
+
+    - Define the "pregame" innitializations. 
+
+        - Wh
+
+
+    - Define HOW players interact with the globalVariables.
+        - This will be tricky to generalize.... 
+        - It might be worth having an EXTENSIVE set of "types" of games for the user to create... i.e administrator, etc.
+
+        Otherwise, we'll need to allow users to BUILD the turn, based on the players present!
+
+        So, they could just choose the types of players they'll have in a turn first. 
+
+        1. For example: 
+            Administrator: 1,
+            Competitor: 2,
+
+        Okay, then they would needto decide HOW THE PLAYERS INTERACT WITH THE GLOBAL DATA. 
+
+        2. Data setting at the start of the game. The Creator will be allowed to decide how the GameVariables change at the start of the round. 
+
+        3. There will be turnData that the user dictates how it's initialized. (Can be taken from the GameData)
+
+        4. 
+
+
+        Then, they could say something like "the turn is won when the administrator 
+
+
+Okay, so the things that the UI needs to be able to do are: 
+
+    - Restrict the players who are participating in the "turn" 
+    - 
+
+
+
+
+
+
+
+
+Game Ideas: 
+
+
+
+Switch Box: 
+
+    A single picture is passed around. 
+
+    P1 passes the picture to P2. If P2 guesses what it is, P1 and P2 get a point. 
+    P2 gets a new prompt to transform the picture into, and draws on top. 
+    P2 passes the picture to P3. If P3 guesses what it is, P2 and P3 get two points. 
+
+    And on and on...
